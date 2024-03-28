@@ -1,13 +1,11 @@
-package dp;
-
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) {
         Main nbricksMcolors = new Main();
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
-        System.out.println(t);
         for (int p = 0; p < t; p++) {
             int n = sc.nextInt();
             int m = sc.nextInt();
@@ -17,12 +15,12 @@ public class Main {
         }
     }
 
-    private int ways(int n, int m, int k) {
-        Integer[][] dp = new Integer[n + 1][k + 1];
-        return rec(0, k, n, m, dp);
+    private long ways(int n, int m, int k) {
+        Long[][] dp = new Long[n + 1][k + 1];
+        return rec(0, k, n, m, dp)%1000000007;
     }
 
-    private int rec(int level, int k, int n, int m, Integer[][] dp) {
+    private long rec(int level, int k, int n, int m, Long[][] dp) {
         if (k < 0) {
             return 0;
         }
@@ -36,8 +34,8 @@ public class Main {
         if (dp[level][k] != null) {
             return dp[level][k];
         }
-        int same = 0;
-        int notSame = 0;
+        long same = 0;
+        long notSame = 0;
         if (level != 0) {
             same = rec(level + 1, k, n, m, dp);
             notSame = (m - 1) * rec(level + 1, k - 1, n, m, dp);
