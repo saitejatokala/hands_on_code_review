@@ -1,10 +1,20 @@
 package dp;
 
-public class Solution {
-    public static void main(String[] args) {
-        Solution nbricksMcolors = new Solution();
+import java.util.Scanner;
 
-        System.out.println(nbricksMcolors.ways(2, 2, 1));
+public class Main {
+    public static void main(String[] args) {
+        Main nbricksMcolors = new Main();
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        System.out.println(t);
+        for (int p = 0; p < t; p++) {
+            int n = sc.nextInt();
+            int m = sc.nextInt();
+            int k = sc.nextInt();
+            System.out.println(nbricksMcolors.ways(n, m, k));
+
+        }
     }
 
     private int ways(int n, int m, int k) {
@@ -13,7 +23,7 @@ public class Solution {
     }
 
     private int rec(int level, int k, int n, int m, Integer[][] dp) {
-        if(k<0){
+        if (k < 0) {
             return 0;
         }
         if (level >= n) {
@@ -28,11 +38,11 @@ public class Solution {
         }
         int same = 0;
         int notSame = 0;
-        if(level!=0) {
+        if (level != 0) {
             same = rec(level + 1, k, n, m, dp);
             notSame = (m - 1) * rec(level + 1, k - 1, n, m, dp);
-        }else {
-            notSame = (m ) * rec(level + 1, k , n, m, dp);
+        } else {
+            notSame = (m) * rec(level + 1, k, n, m, dp);
         }
 
 
