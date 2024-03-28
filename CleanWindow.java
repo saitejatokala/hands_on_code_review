@@ -1,5 +1,4 @@
 
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -25,7 +24,10 @@ class Main {
                 clean(dp, order[i]);
             }
             for (Integer[] integers : dp) {
-                System.out.println(Arrays.toString(integers));
+                for (Integer integer : integers) {
+                    System.out.print(integer + " ");
+                }
+                System.out.println();
             }
         }
     }
@@ -94,6 +96,6 @@ class Main {
                     "x=" + x + ", " +
                     "y=" + y + ']';
         }
-    
-        }
+
+    }
 }
