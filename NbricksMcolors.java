@@ -1,8 +1,8 @@
 package dp;
 
-public class NbricksMcolors {
+public class Solution {
     public static void main(String[] args) {
-        NbricksMcolors nbricksMcolors = new NbricksMcolors();
+        Solution nbricksMcolors = new Solution();
 
         System.out.println(nbricksMcolors.ways(2, 2, 1));
     }
